@@ -3,20 +3,16 @@ const bn = new BN();
 var EC = require('elliptic').ec;
 var ec = new EC('secp256k1');
 
-
-
 let nodeIndex = [
     new BN(1),
-    //new BN(2),
-    new BN(3),
+    new BN(2),
+    //new BN(3),
 ];
 
-
-
 let shares = [
-    new BN("1fdcaed1c2f55a881041bbab0969da1ea7d290fb15f3c531d579cf86146908a879f967c2b23d3e1bb5edd7fa8425dc05954df0348d2dd634b645f113776a3927", "hex"),
-    //new BN("9279484fbb9a7a67980e4faf98581d80c4754ee4e3912ddefe1fd50a004ef9873ec3bf26c6077b3063af8dc4abc8ecb5fb8c167b730da782482d43058cd30d81", "hex"),
-    new BN("5f960c7548e00f9830c533011c3d8e5bf777b2f141db4f95806d6e923d3b19f8d4b110bd9c8b53e8722132e6de2e1cebfaca8f19384ca5a31ca89cd168033827", "hex"),
+    new BN("a5bb7a55eb35bc5e2da6dbd32fe3d5d45b83c5816f5521e146ea0b4e305b85109178d50faa1214f616d24c0c32ecc46c1511b84e4364c8c4138d3976919cafb1", "hex"),
+    new BN("14b76f4abd66b78bc5b4db7a65fc7aba8b7078b02deaa43c28dd4169c60b70a210a2612e8bf3678a9f0b83cb5b373700d14f1ec5221742d5d18e4136f0fa209cd", "hex"),
+    //new BN("1f1326f01c1a1351a88f493798fab817d128b50844dff65a3d4be21ea91128f3182d350c1d45adc5dca9e2d5f33fa1bae14d22055ff8391f61e3aed678da763e9", "hex"),
 ];
 
 function lagrangeInterpolation(shares, nodeIndex) {
@@ -42,7 +38,6 @@ function lagrangeInterpolation(shares, nodeIndex) {
     }
     return secret.umod(ec.n);
 }
-
 const derivedPrivateKey = lagrangeInterpolation(shares, nodeIndex);
 console.log(derivedPrivateKey);
 
