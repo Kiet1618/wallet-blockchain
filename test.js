@@ -6,13 +6,13 @@ var ec = new EC('secp256k1');
 let nodeIndex = [
     new BN(1),
     new BN(2),
-    //new BN(3),
+    new BN(3),
 ];
 
 let shares = [
-    new BN("a5bb7a55eb35bc5e2da6dbd32fe3d5d45b83c5816f5521e146ea0b4e305b85109178d50faa1214f616d24c0c32ecc46c1511b84e4364c8c4138d3976919cafb1", "hex"),
-    new BN("14b76f4abd66b78bc5b4db7a65fc7aba8b7078b02deaa43c28dd4169c60b70a210a2612e8bf3678a9f0b83cb5b373700d14f1ec5221742d5d18e4136f0fa209cd", "hex"),
-    //new BN("1f1326f01c1a1351a88f493798fab817d128b50844dff65a3d4be21ea91128f3182d350c1d45adc5dca9e2d5f33fa1bae14d22055ff8391f61e3aed678da763e9", "hex"),
+    new BN("5521f26d03fec1e92580a52ed6ac8452cd0c56f12f058ddece58dde0bcc1ce332a4db11fbf984b75f6dd124c56b608e3cb9d0c0f4de319aa22142eda5206fca4", "hex"),
+    new BN("aa43e4da07fd83d24b014a5dad5908a59a18ade25e0b1bbd9cb1bbc179839c65622e1a5d700586efe6249ae35fc9939d687a80897220fba07e31b479c9424a2b", "hex"),
+    new BN("ff65d7470bfc45bb7081ef8c84058cf8672504d38d10a99c6b0a99a236456a979a0e839b2072c269d56c237a68dd1e570557f503965edd96da4f3a19407d97b2", "hex"),
 ];
 
 function lagrangeInterpolation(shares, nodeIndex) {

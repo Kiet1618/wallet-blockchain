@@ -4,15 +4,7 @@ var EC = require('elliptic').ec;
 var ec = new EC('secp256k1');
 const crypto = require("crypto");
 
-function generateShares(length) {
-  let array = [];
-  for (let i = 0; i < length; i++) {
-    let temp2 = new BN(crypto.randomBytes(64).toString("hex"), "hex");
-    array[i] = temp2;
-  }
-  return array;;
-}
-let shares = generateShares(1);
+let shares = [new BN(crypto.randomBytes(64).toString("hex"), "hex")];
 console.log("Initial state PRIVATE KEY:");
 priKey = new BN(crypto.randomBytes(64).toString("hex"), "hex").umod(ec.n);
 console.log(priKey);
@@ -54,3 +46,12 @@ shares[2] = generateSharesLagrangeInterpolation(shares, nodeIndex, priKey);
 console.log(nodeIndex);
 shares = shares.map(x => x.toString('hex'));
 console.log(shares);
+
+// function generateShares(length) {
+//   let array = [];
+//   for (let i = 0; i < length; i++) {
+//     let temp2 = new BN(crypto.randomBytes(64).toString("hex"), "hex");
+//     array[i] = temp2;
+//   }
+//   return array;;
+// }
